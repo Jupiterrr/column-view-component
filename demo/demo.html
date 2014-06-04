@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta charset="utf-8">
+  <title>column-view Demo</title>
+
+  <script src="../bower_components/platform/platform.js"></script>
+  <link rel="import" href="../src/column-view.html">
+
+  <link rel="stylesheet" type="text/css" href="demo.css">
+  <script src="demo-data.js"></script>
+  <script src="demo.js"></script>
+</head>
+<body unresolved>
+
+
+
+  <p>An example of using <code>&lt;column-view></code>:</p>
+
+  <button is="column-view-back" for="column-view1">back</button>
+
+  <column-view id="column-view1" ondata="source1" /></column-view>
+
+
+  <button is="column-view-back" for="column-view">back</button>
+
+  <column-view id="column-view" path="7022" ondata="source" /></column-view>
+
+
+</body>
+</html>

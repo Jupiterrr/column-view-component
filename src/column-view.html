@@ -1,0 +1,224 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="column-view-back.html">
+
+<!--
+Element providing solution to no problem in particular.
+
+##### Example
+    var data = {
+      1: {name: "Mom", childIDs: [2,3]},
+      2: {name: "Son"},
+      2: {name: "Daughter"}
+    }
+    <script type="text/javascript">
+      function source(ID, cb) {
+        cb({items: children});
+      };
+    </script>
+
+    <column-view path="1" ondata="source" /></column-view>
+
+@element column-view
+@blurb Element providing solution to no problem in particular.
+@status alpha
+@homepage http://polymerlabs.github.io/seed-element
+-->
+<polymer-element name="column-view" attributes="path ondata layout">
+  <script type="text/javascript" src="lib/all.js"></script>
+
+  <template>
+
+    <style type="text/css">
+      :host {
+        display: block;
+      }
+
+      :host {
+        position: relative;
+        height: 480px;
+        border: 1px solid #E2E2E2;
+        overflow: hidden;
+        background: white;
+      }
+
+      :host.mobile {
+        height: auto;
+      }
+
+      :host #carriage {
+        position: relative;
+        height: 100%;
+        width: 10000px;
+        white-space: nowrap;
+      }
+
+      :host #carriage.transition {
+        -webkit-transition: -webkit-transform 230ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+        transition: transform 230ms cubic-bezier(0.250, 0.460, 0.450, 0.940);
+      }
+
+ /*
+      :host [scroll] #carriage {
+        width: auto;
+        overflow-x: scroll;
+        -webkit-transition: none !important;
+        transition: none !important;
+      }
+*/
+
+      ::content > ul {
+        position: relative;
+        display: inline-block;
+        height: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        overflow-y: auto;
+        white-space: initial;
+        -webkit-transition: background-color linear .1s;
+        transition: background-color linear .1s;
+        border-right: 1px solid #E2E2E2;
+        word-break: break-word;
+        vertical-align: top;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      ::content > ul:last-child {
+        background-color: #fff;
+      }
+
+      ::content .divider {
+        padding: 1px 10px 0 10px;
+        border-bottom: 1px solid #E2E2E2;
+        line-height: 16px;
+        background: #C0C0C0;
+      }
+
+      ::content .divider:first-child { padding-top: 1px; }
+
+      ::content li {
+        display: block;
+        padding: 3px;
+      }
+
+      ::content li:hover {
+        cursor: pointer;
+      }
+
+      ::content li.selected {
+        color: #ffffff;
+        background-color: #0069D6;
+      }
+
+
+    </style>
+
+    <style id="style" type="text/css"></style>
+    <div id="carriage">
+      <content></content>
+    </div>
+
+  </template>
+
+  <script>
+
+    Polymer('column-view', {
+      /* *
+       * The `author` attribute sets an initial author
+       *
+       * @attribute author
+       * @type string
+       */
+      // author: 'Carsten Griesheimer',
+
+      /* *
+       * `fancy` is a property that does something fancy.
+       *
+       * @property path
+       * @type string
+       */
+
+
+      /**
+       * `path` defines the path of items the column-view is initialized with.
+       * When the element is ready the `ondata` method is called with each item ID.
+       * Each call results in a new column.
+       *
+       * IDs are speareated by `/`.
+       *
+       * Example:<br><br>
+       * &emsp; `path="1/2/3"`
+       * @attribute path
+       * @type string
+       */
+      path: "",
+
+      /**
+       * `layout` is a property that does something fancy.
+       *
+       * @attribute layout
+       * @type string
+       */
+      layout: "no-mobile",
+
+      ready: function() {
+        var that = this;
+        var sourceFn = window[this.ondata];
+        this.cv = new ColumnView(
+          that,
+          {
+            source: sourceFn,
+            path: that.path.split("/"),
+            onChange: function(ID) {
+              that.fire("change", ID);
+            },
+            layout: that.layout,
+            scroll: false
+          }
+        );
+      },
+
+      /**
+       * `canMoveBack` is a property that does something fancy.
+       *
+       * @property canMoveBack
+       * @type boolean
+       */
+      get canMoveBack (){
+        return this.cv.canMoveBack();
+      },
+
+      /**
+       * The `back` method will deselect the last selected item.
+       *
+       * @method back
+       */
+      back: function() {
+        this.cv.back();
+      },
+
+      /**
+       * The `change` event is fired whenever a change happens.
+       *
+       * @event change
+       */
+
+    });
+
+  </script>
+
+</polymer-element>
+
+<!--
+/* *
+ * The `back` method will deselect the last selected item.
+ *
+ * @method back
+ * @return {String} Returns a string greeting.
+ * @param {String} greeting Pass in a specific greeting
+ */
+-->
+
+
