@@ -4,11 +4,10 @@
 > Web Component providing a Miller columns widget (aka OS X Column View)  using [Polymer](http://www.polymer-project.org/).
 
 
-## Demo
+## [Demos with Code](http://rawgit.com/Jupiterrr/column-view-component/master/demo/index.html)
 
 <img src="https://f.cloud.github.com/assets/681942/2457975/993771cc-af43-11e3-9585-0dadd54e6c4c.png" alt="screenshot" width="600" />
 
-[Check it live!](http://zenorocha.github.io/voice-elements)
 
 ## Install
 
