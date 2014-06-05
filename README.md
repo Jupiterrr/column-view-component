@@ -3,10 +3,18 @@
 
 > Web Component providing a Miller columns widget (aka OS X Column View)  using [Polymer](http://www.polymer-project.org/).
 
+<img src="https://f.cloud.github.com/assets/681942/2457975/993771cc-af43-11e3-9585-0dadd54e6c4c.png" alt="screenshot" width="450" />
 
-## [Demos with Code](http://rawgit.com/Jupiterrr/column-view-component/master/demo/index.html)
+What does it do?
 
-<img src="https://f.cloud.github.com/assets/681942/2457975/993771cc-af43-11e3-9585-0dadd54e6c4c.png" alt="screenshot" width="600" />
+* It does fast
+* It does Preview cloumns
+* It does keyboard navigation
+
+### [Demos with Code](http://rawgit.com/Jupiterrr/column-view-component/master/demo/index.html)
+
+
+
 
 
 ## Install
@@ -47,20 +55,18 @@ $ bower install column-view --save
 
 ## &lt;column-view&gt;
 
-Provides you a simple DOM API to do speech synthesis (text to speech).
 
 ### Attributes
 
 Attribute | Options | Default | Description
 --- | --- | --- | ---
 `path` | *string* | `""` | Defines the path of items the column-view is initialized with. When the element is ready the `ondata` method is called with each item ID. Each call results in a new column. <br><br>IDs are speareated by `/`.<br><br>Example: `path="1/2/3"`
-`layout`   | `no-mobile` | `no-mobile` | ...
 
 ### Methods
 
 Method | Parameters | Returns | Description
 --- | --- | --- | ---
-`back()`  | None. | Nothing. | ...
+`back()`  | None. | Nothing. | Deselects last selected item
 
 ### Properties
 
@@ -77,6 +83,18 @@ Event | Description
 
 ## &lt;button is="column-view-back"&gt;
 
+With `is="column-view-back"` you can extend a button so that when you click it you move the selection one column to the left.
+
+```html
+<button is="column-view-back" for="columnViewID">back</button>
+<column-view id="columnViewID"></column-view>
+```
+
+### Attributes
+
+Attribute | Options | Default | Description
+--- | --- | --- | ---
+`for` | *ID* | None. | The ID of a column-view
 
 <!--
 
