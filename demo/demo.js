@@ -40,16 +40,3 @@ function source(value, cb) {
   sourceFn(value, cb);
 };
 
-function source1(value, cb) {
-  console.log("source", value);
-  if (value=="") value = String(data.rootID);
-  var sourceFn = value[0] == 'e' ? sourceEvent : sourceNode;
-  sourceFn(value, cb);
-};
-
-
-function onChange(id) {
-  var backBtn = document.getElementById("backBtn");
-  backBtn.disabled = !this.canMoveBack();
-  // console.log("change", id, this.canMoveBack())
-}

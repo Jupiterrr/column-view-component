@@ -1,7 +1,8 @@
 ![heheartlandpark2601underconstructionbar9](https://cloud.githubusercontent.com/assets/681942/3190204/f1e5fbde-eccb-11e3-855c-de7b640b3a63.gif)
 # &lt;column-view&gt;
 
-> Web Component providing a Miller columns widget (aka OS X Column View)  using [Polymer](http://www.polymer-project.org/).
+Polymer Web Component for a Miller columns (a.k.a. OS X Column View) element 
+
 
 <img src="https://f.cloud.github.com/assets/681942/2457975/993771cc-af43-11e3-9585-0dadd54e6c4c.png" alt="screenshot" width="450" />
 
@@ -60,7 +61,8 @@ $ bower install column-view --save
 
 Attribute | Options | Default | Description
 --- | --- | --- | ---
-`path` | *string* | `""` | Defines the path of items the column-view is initialized with. When the element is ready the `ondata` method is called with each item ID. Each call results in a new column. <br><br>IDs are speareated by `/`.<br><br>Example: `path="1/2/3"`
+`ondata` | *Function(String value, Function callback)* | None. | **Required**<br> A function to be called for each selected item. This function can either pass child items or an HTML element to the callback function.<br><br>Callback:<br>`callback({dom: <HTMLElement>})` <br> `callback({items: [{name: <String>, value: <String, Number>}, ...]})` 
+`path` | *String* | `""` | Defines the path of items the column-view is initialized with. When the element is ready the `ondata` method is called with each item ID. Each call results in a new column. <br><br>IDs are speareated by `/`.<br><br>Example: `path="1/2/3"`
 
 ### Methods
 
@@ -72,7 +74,7 @@ Method | Parameters | Returns | Description
 
 Method | Returns | Description
 --- | --- | ---
-`canMoveBack` | *boolean* | ...
+`canMoveBack` | *Boolean* | ...
 
 ### Events
 
