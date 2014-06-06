@@ -1,7 +1,7 @@
 ![heheartlandpark2601underconstructionbar9](https://cloud.githubusercontent.com/assets/681942/3190204/f1e5fbde-eccb-11e3-855c-de7b640b3a63.gif)
 # &lt;column-view&gt;
 
-Polymer Web Component for a Miller columns (a.k.a. OS X Column View) element 
+Polymer Web Component for a Miller columns (a.k.a. OS X Column View) element
 
 
 <img src="https://f.cloud.github.com/assets/681942/2457975/993771cc-af43-11e3-9585-0dadd54e6c4c.png" alt="screenshot" width="450" />
@@ -42,16 +42,43 @@ $ bower install column-view --save
     <link rel="import" href="bower_components/column-view/dist/column-view.html">
     ```
 
-3. Start using it!
+3. Insert Custom Element
+
+    ```html
+    <column-view ondata="sourceFn"></column-view>
+    ```
+
+4. Set up your data source
 
     ```html
     <script type="text/javascript">
-      function source(value, cb) {
-
+      var data = {
+        0: {name: "root", childIDs: [1,2]}, // not vissible
+        1: {name: "Item 1", childIDs: [3,4,5]},
+        2: {name: "Item 2"},
+        3: {name: "Item 3"},
+        4: {name: "Item 4"},
+        5: {name: "Item 5"}
       };
-    </script>
 
-    <column-view path="1" ondata="source" /></column-view>
+      function getChildren(selectedItem) {
+        var children = selectedItem.childIDs.map(function(id) {
+          var item = data[id];
+          return {name: item.name, value: id};
+        });
+        return children;
+      }
+
+      function sourceFn(ID, cb) {
+        if (!ID) ID = 0;
+        var selectedItem = data[ID];
+        if (selectedItem.childIDs) {
+          cb({items: getChildren(selectedItem)});
+        } else {
+          cb({dom: document.createTextNode("Preview: " + selectedItem.name)})
+        }
+      }
+    </script>
     ```
 
 ## &lt;column-view&gt;
@@ -61,7 +88,7 @@ $ bower install column-view --save
 
 Attribute | Options | Default | Description
 --- | --- | --- | ---
-`ondata` | *Function(String value, Function callback)* | None. | **Required**<br> A function to be called for each selected item. This function can either pass child items or an HTML element to the callback function.<br><br>Callback:<br>`callback({dom: <HTMLElement>})` <br> `callback({items: [{name: <String>, value: <String, Number>}, ...]})` 
+`ondata` | *Function(String value, Function callback)* | None. | **Required**<br> A function to be called for each selected item. This function can either pass child items or an HTML element to the callback function.<br><br>Callback:<br>`callback({dom: <HTMLElement>})` <br> `callback({items: [{name: <String>, value: <String, Number>}, ...]})`
 `path` | *String* | `""` | Defines the path of items the column-view is initialized with. When the element is ready the `ondata` method is called with each item ID. Each call results in a new column. <br><br>IDs are speareated by `/`.<br><br>Example: `path="1/2/3"`
 
 ### Methods
