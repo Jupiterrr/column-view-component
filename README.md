@@ -1,4 +1,3 @@
-![heheartlandpark2601underconstructionbar9](https://cloud.githubusercontent.com/assets/681942/3190204/f1e5fbde-eccb-11e3-855c-de7b640b3a63.gif)
 # &lt;column-view&gt;
 
 Polymer Web Component for a Miller columns (a.k.a. OS X Column View) element
@@ -13,8 +12,6 @@ What does it do?
 * It does keyboard navigation
 
 ### [Demos with Code](http://rawgit.com/Jupiterrr/column-view-component/master/demo/index.html)
-
-
 
 
 
