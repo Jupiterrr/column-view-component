@@ -36,7 +36,7 @@ $ bower install column-view --save
 2. Import Custom Element:
 
     ```html
-    <link rel="import" href="bower_components/column-view/src/column-view.html">
+    <link rel="import" href="bower_components/column-view/dist/column-view.html">
     ```
 
 3. Insert Custom Element
@@ -46,6 +46,8 @@ $ bower install column-view --save
     ```
 
 4. Set up your data source
+
+	Example:
 
     ```html
     <script type="text/javascript">
