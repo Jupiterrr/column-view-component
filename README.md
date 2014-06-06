@@ -11,7 +11,7 @@ What does it do?
 * It does Preview cloumns
 * It does keyboard navigation
 
-### [Demos with Code](http://rawgit.com/Jupiterrr/column-view-component/master/demo/index.html)
+### [Demos with Code](http://raw.githack.com/Jupiterrr/column-view-component/master/demo/index.html)
 
 
 
