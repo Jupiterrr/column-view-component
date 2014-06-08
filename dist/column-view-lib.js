@@ -545,7 +545,7 @@ var ColumnView = (function() {
     },
 
     _setStyle: function setStyle(css) {
-      this.style.innerHTML = "::content > * {"+css+"}";
+      this.style.innerHTML = ":host #carriage > * {"+css+"}";
     },
 
     setLayout: function setLayout(layout) {

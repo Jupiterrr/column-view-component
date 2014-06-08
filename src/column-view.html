@@ -66,7 +66,7 @@ Element providing solution to no problem in particular.
       }
 */
 
-      ::content > ul {
+      :host #carriage > ul {
         position: relative;
         display: inline-block;
         height: 100%;
@@ -85,29 +85,29 @@ Element providing solution to no problem in particular.
         list-style: none;
       }
 
-      ::content > ul:last-child {
+      :host #carriage > ul:last-child {
         background-color: #fff;
       }
 
-      ::content .divider {
+      :host #carriage .divider {
         padding: 1px 10px 0 10px;
         border-bottom: 1px solid #E2E2E2;
         line-height: 16px;
         background: #C0C0C0;
       }
 
-      ::content .divider:first-child { padding-top: 1px; }
+      :host #carriage .divider:first-child { padding-top: 1px; }
 
-      ::content li {
+      :host #carriage li {
         display: block;
         padding: 3px;
       }
 
-      ::content li:hover {
+      :host #carriage li:hover {
         cursor: pointer;
       }
 
-      ::content li.selected {
+      :host #carriage li.selected {
         color: #ffffff;
         background-color: #0069D6;
       }
