@@ -450,14 +450,9 @@ var ColumnView = (function() {
       }
 
       function ready() {
-        // that.domCarriage.innerHTML = "";
-        // that.domCarriage.appendChild(that.carriage);
-        // that.carriage = that.domCarriage;
-
-        that.el.innerHTML = "";
-        that.el.appendChild(that.carriage);
-        that.carriage = that.el;
-
+        that.domCarriage.innerHTML = "";
+        that.domCarriage.appendChild(that.carriage);
+        that.carriage = that.domCarriage;
 
         that._resize();
         that._alignCols();
@@ -522,30 +517,12 @@ var ColumnView = (function() {
       this.lastAllignment = length;
       var leftOut = Math.max(0, length - this.colCount);
       this.lastLeftOut = leftOut
-      //this._moveCarriage(leftOut);
-      this._resizeY();
+      this._moveCarriage(leftOut);
     },
 
     _resize: function resize() {
-      this.colWidth = this.el.offsetWidth / this.colCount;
-      this._setStyle("width:"+this.colWidth+"px;");
-      var col = this.columns().slice(-1)[0];
-      var height = col.offsetHeight;
-      this._setStyle("height:"+height+"px;"+"width:"+this.colWidth+"px;");
+      this.colWidth = this.carriage.childNodes[0].getBoundingClientRect().width;
       this._moveCarriage(this.lastLeftOut, {transition: false});
-    },
-
-    _resizeY: function resize() {
-      this.colWidth = this.el.offsetWidth / this.colCount;
-      this._setStyle("width:"+this.colWidth+"px;");
-      var col = this.columns().slice(-1)[0];
-      var height = col.offsetHeight;
-      this._setStyle("height:"+height+"px;"+"width:"+this.colWidth+"px;");
-      this._moveCarriage(this.lastLeftOut);
-    },
-
-    _setStyle: function setStyle(css) {
-      this.style.innerHTML = ":host #carriage > * {"+css+"}";
     },
 
     setLayout: function setLayout(layout) {

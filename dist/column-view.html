@@ -1,28 +1,6 @@
 <link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="column-view-back.html">
 
-<!--
-Element providing solution to no problem in particular.
-
-##### Example
-    var data = {
-      1: {name: "Mom", childIDs: [2,3]},
-      2: {name: "Son"},
-      2: {name: "Daughter"}
-    }
-    <script type="text/javascript">
-      function source(ID, cb) {
-        cb({items: children});
-      };
-    </script>
-
-    <column-view path="1" ondata="source" /></column-view>
-
-@element column-view
-@blurb Element providing solution to no problem in particular.
-@status alpha
-@homepage http://polymerlabs.github.io/seed-element
--->
 <polymer-element name="column-view" attributes="path ondata layout">
   <script type="text/javascript" src="column-view-lib.js"></script>
 
@@ -48,7 +26,7 @@ Element providing solution to no problem in particular.
       :host #carriage {
         position: relative;
         height: 100%;
-        width: 10000px;
+        width: 100%;
         white-space: nowrap;
       }
 
@@ -70,6 +48,8 @@ Element providing solution to no problem in particular.
         position: relative;
         display: inline-block;
         height: 100%;
+        width: 33.33%;
+        width: calc(100%/3);
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -117,7 +97,7 @@ Element providing solution to no problem in particular.
 
     <style id="style" type="text/css"></style>
     <div id="carriage">
-      <content></content>
+      <!-- <content></content> -->
     </div>
 
   </template>
@@ -125,42 +105,9 @@ Element providing solution to no problem in particular.
   <script>
 
     Polymer('column-view', {
-      /* *
-       * The `author` attribute sets an initial author
-       *
-       * @attribute author
-       * @type string
-       */
-      // author: 'Carsten Griesheimer',
 
-      /* *
-       * `fancy` is a property that does something fancy.
-       *
-       * @property path
-       * @type string
-       */
-
-
-      /**
-       * `path` defines the path of items the column-view is initialized with.
-       * When the element is ready the `ondata` method is called with each item ID.
-       * Each call results in a new column.
-       *
-       * IDs are speareated by `/`.
-       *
-       * Example:<br><br>
-       * &emsp; `path="1/2/3"`
-       * @attribute path
-       * @type string
-       */
       path: "",
 
-      /**
-       * `layout` is a property that does something fancy.
-       *
-       * @attribute layout
-       * @type string
-       */
       layout: "no-mobile",
 
       ready: function() {
@@ -180,45 +127,16 @@ Element providing solution to no problem in particular.
         );
       },
 
-      /**
-       * `canMoveBack` is a property that does something fancy.
-       *
-       * @property canMoveBack
-       * @type boolean
-       */
       get canMoveBack (){
         return this.cv.canMoveBack();
       },
 
-      /**
-       * The `back` method will deselect the last selected item.
-       *
-       * @method back
-       */
       back: function() {
         this.cv.back();
-      },
-
-      /**
-       * The `change` event is fired whenever a change happens.
-       *
-       * @event change
-       */
+      }
 
     });
 
   </script>
 
 </polymer-element>
-
-<!--
-/* *
- * The `back` method will deselect the last selected item.
- *
- * @method back
- * @return {String} Returns a string greeting.
- * @param {String} greeting Pass in a specific greeting
- */
--->
-
-
