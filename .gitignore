@@ -1,3 +1,4 @@
 .bowerrc
 *.sublime-workspace
-test
+dist
+bower_components
