@@ -7,7 +7,7 @@ function sourceEvent(value, cb) {
 }
 
 function sourceNode(value, cb) {
-  var node = data.tree[value];
+  var node = data.tree[value || data.rootID];
   var childIDs = node[1];
   if (childIDs.length == 0) {
     sourceEmpty(value, cb);
@@ -39,4 +39,3 @@ function source(value, cb) {
   var sourceFn = value[0] == 'e' ? sourceEvent : sourceNode;
   sourceFn(value, cb);
 };
-
