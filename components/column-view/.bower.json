@@ -27,11 +27,11 @@
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "web-component-tester": "*"
   },
-  "_release": "20999d89d8",
+  "_release": "0e9fcb37d7",
   "_resolution": {
     "type": "branch",
     "branch": "updatePolymer",
-    "commit": "20999d89d89a8dec4ac2131c00e4cbbbd783d3d6"
+    "commit": "0e9fcb37d70c85bd08786e35f517131bc93241cd"
   },
   "_source": "git://github.com/Jupiterrr/column-view-component.git",
   "_target": "updatePolymer",

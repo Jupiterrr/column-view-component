@@ -1,2 +1,3 @@
-src/
-dist/
+/src/
+/dist/
+/bower_components/
