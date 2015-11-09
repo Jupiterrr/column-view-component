@@ -11,7 +11,7 @@
     "web-components",
     "miller-columns"
   ],
-  "main": "src/column-view.html",
+  "main": "column-view.html",
   "license": "MIT",
   "homepage": "https://github.com/Jupiterrr/column-view-component",
   "ignore": [
