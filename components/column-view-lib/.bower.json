@@ -1,0 +1,32 @@
+{
+  "name": "column-view",
+  "authors": [
+    "Carsten Griesheimer <hallo@carstengriesheimer.de>"
+  ],
+  "description": "A script to provide a column view component without dependencies and a native feeling.",
+  "main": "src/column-view.js",
+  "keywords": [
+    "column",
+    "view",
+    "miller",
+    "finder"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/Jupiterrr/column-view",
+  "_release": "de43c492b0",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "de43c492b0321cd6ff378601ad8f5a576d4dbb53"
+  },
+  "_source": "git://github.com/Jupiterrr/column-view.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/Jupiterrr/column-view.git"
+}

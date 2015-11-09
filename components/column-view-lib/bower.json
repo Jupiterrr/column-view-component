@@ -1,0 +1,23 @@
+{
+  "name": "column-view",
+  "version": "0.0.0",
+  "authors": [
+    "Carsten Griesheimer <hallo@carstengriesheimer.de>"
+  ],
+  "description": "A script to provide a column view component without dependencies and a native feeling.",
+  "main": "src/column-view.js",
+  "keywords": [
+    "column",
+    "view",
+    "miller",
+    "finder"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

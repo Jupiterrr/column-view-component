@@ -1,0 +1,39 @@
+{
+  "name": "column-view",
+  "authors": [
+    "Carsten Griesheimer hallo@carstengriesheimer.de"
+  ],
+  "description": "Polymer Web Component for a Miller columns (a.k.a. OS X Column View) element.",
+  "keywords": [
+    "column-view",
+    "polymer",
+    "web-components",
+    "miller-columns"
+  ],
+  "main": "column-view.html",
+  "license": "MIT",
+  "homepage": "https://github.com/Jupiterrr/column-view-component",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "tests",
+    "test"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0",
+    "column-view-lib": "git://github.com/Jupiterrr/column-view.git"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  },
+  "_release": "20999d89d8",
+  "_resolution": {
+    "type": "branch",
+    "branch": "updatePolymer",
+    "commit": "20999d89d89a8dec4ac2131c00e4cbbbd783d3d6"
+  },
+  "_source": "git://github.com/Jupiterrr/column-view-component.git",
+  "_target": "updatePolymer",
+  "_originalSource": "Jupiterrr/column-view-component"
+}
