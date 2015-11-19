@@ -13,10 +13,10 @@ Supports:
 
 <dom-module id="column-view">
   <script type="text/javascript" src="../column-view-lib/dist/all.js"></script>
-  <link rel="stylesheet" type="text/css" href="../column-view-lib/dist/column-view.css">
 
   <template>
 
+    <link rel="stylesheet" type="text/css" href="../column-view-lib/dist/column-view.css">
     <style type="text/css">
       :host {
         display: inline-block;
@@ -26,8 +26,8 @@ Supports:
 
       .column-view {
         height: 100%;
+        box-sizing: border-box;
       }
-
     </style>
 
     <div class="column-view">
