@@ -1,6 +1,6 @@
 {
   "name": "column-view",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "authors": [
     "Carsten Griesheimer hallo@carstengriesheimer.de"
   ],
@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.2.0",
-    "column-view-lib": "git://github.com/Jupiterrr/column-view.git"
+    "column-view-lib": "https://github.com/Jupiterrr/column-view.git#de43c49"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

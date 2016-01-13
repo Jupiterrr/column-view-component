@@ -21,17 +21,17 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.2.0",
-    "column-view-lib": "git://github.com/Jupiterrr/column-view.git"
+    "column-view-lib": "https://github.com/Jupiterrr/column-view.git#de43c49"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "web-component-tester": "*"
   },
-  "_release": "2f828b3368",
+  "_release": "4f60be3c29",
   "_resolution": {
     "type": "branch",
     "branch": "updatePolymer",
-    "commit": "2f828b3368f70729156ae6e3c4c113a480153328"
+    "commit": "4f60be3c2979f3ede560c691a385fd058282a0cd"
   },
   "_source": "git://github.com/Jupiterrr/column-view-component.git",
   "_target": "updatePolymer",
