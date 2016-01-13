@@ -88,7 +88,7 @@ bower install column-view --save
 Attribute | Options | Default | Description
 --- | --- | --- | ---
 `ondata` | *Function(String value, Function callback)* | None. | A function to be called for each selected item. This function can either pass child items or an HTML element to the callback function.<br><br>Callback:<br>`callback({dom: <HTMLElement>})` <br> `callback({items: [{name: <String>, value: <String, Number>}, ...]})`
-`data` | *JSON* | None. | *\*work in progress\** <br>```JSON {"fruits": {"apple": "\<b>Apple\</b>", "grape": "\<b>Grape\</b>"}}```
+`data` | *JSON* | None. | \*work in progress\* <br>`{"fruits": {"apple": "<b>Apple</b>", "grape": "<b>Grape</b>"}}`
 `path` | *String* | `""` | Defines the path of items the column-view is initialized with. When the element is ready the `ondata` method is called with each item ID. Each call results in a new column. <br><br>IDs are speareated by `/`.<br><br>Example: `path="1/2/3"`
 
 ### Methods
