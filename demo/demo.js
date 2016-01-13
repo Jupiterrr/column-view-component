@@ -1,41 +1,54 @@
-function sourceEvent(value, cb) {
-  var event = data.events[value.slice(1)]
-  var div = document.createElement("div");
-  div.classList.add("event");
-  div.innerHTML = "<h2>"+event.name+"</h2>"+event.type+"<br />"+event.lecturer+"<br /><p>"+event.description+"</p>";
-  cb({dom: div});
+// data (from data.js) is save to `window.data`
+// structure:
+//   window.data = {
+//     tree: {
+//       <id>: [<name>, <ids of child nodes>, <is leave>],
+//       ...
+//     },
+//     events: {
+//       <id>: { name: "", type: "", lecturer: "", description: "" },
+//       ...
+//     }
+//   }
+
+// called whenever the selection changes
+function ondata(value, cb) {
+  if (value[0] == 'e') {
+    cb({ dom: toDom(getEventPreview(value)) });
+  } else {
+    var items = getListItems(value);
+    if (items.length == 0) {
+      cb({ dom: toDom("<div>empty</div>") });
+    } else {
+      cb({ items: getListItems(value) });
+    }
+  }
 }
 
-function sourceNode(value, cb) {
+function getEventPreview(value) {
+  var eventId = value.slice(1);
+  var e = data.events[eventId];
+  return "<div class='event'><h2>" + e.name + "</h2>" + e.type + "<br />" + e.lecturer + "<br /><p>" + e.description + "</p></div>";
+}
+
+function getListItems(value) {
   var node = data.tree[value || data.rootID];
   var childIDs = node[1];
-  if (childIDs.length == 0) {
-    sourceEmpty(value, cb);
-    return;
-  }
 
-  var children = childIDs.map(function(id) {
-    if (!node[2]) {
-      var n = data.tree[id];
-      var value = id;
-      return {name : n[0], value: value};
+  return childIDs.map(function(id) {
+    if (node[2]) { // true it its a leave node
+      var event = data.events[id];
+      return { name: event.name, value: "e" + id };
     } else {
-      var n = data.events[id];
-      var value = "e" + id;
-      return {name : n.name, value: value};
+      var item = data.tree[id];
+      return { name: item[0], value: id };
     }
-  })
-  cb({items: children});
+  });
 }
 
-function sourceEmpty(value, cb) {
-  var div = document.createElement("div");
-  div.innerHTML = "empty";
-  cb({dom: div});
+// helper function
+function toDom(html) {
+  var wrapper = document.createElement("div");
+  wrapper.innerHTML = html;
+  return wrapper;
 }
-
-function source(value, cb) {
-  // console.log("source", value);
-  var sourceFn = value[0] == 'e' ? sourceEvent : sourceNode;
-  sourceFn(value, cb);
-};

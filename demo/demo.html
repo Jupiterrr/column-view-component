@@ -18,6 +18,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <link rel="stylesheet" type="text/css" href="demo.css">
     <script src="demo-data.js"></script>
     <script src="demo.js"></script>
+    <style>
+      hr { border: 0; border-bottom: 1px dashed #e5e5e5; margin: 3em 0; }
+    </style>
   </head>
   <body unresolved>
 
@@ -50,12 +53,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         })
       </script>
 
-
-      <br /><br /><br />
+      <hr />
+      <h3>Real world demo:</h3>
       <button is="column-view-back" for="columnView2">back</button>
       <br />
-      <column-view id="columnView2" path="7022" ondata="source"></column-view>
-
+      <column-view id="columnView2" path="7022" ondata="ondata"></column-view>
+      <a href="demo.js" target="_blank">javascript source</a>
     </div>
   </body>
 </html>
