@@ -1,28 +1,64 @@
 <!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <meta charset="utf-8">
-  <title>column-view Demo</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>column-view Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../column-view.html">
+    <link rel="stylesheet" type="text/css" href="demo.css">
+    <script src="demo-data.js"></script>
+    <script src="demo.js"></script>
+    <style>
+      hr { border: 0; border-bottom: 1px dashed #e5e5e5; margin: 3em 0; }
+    </style>
+  </head>
+  <body unresolved>
 
-  <script src="../bower_components/platform/platform.js"></script>
-  <link rel="import" href="../src/column-view.html">
+    <div class="container">
+      <div class="box">
+        <p>An example of <code>&lt;column-view&gt;</code>:</p>
 
-  <link rel="stylesheet" type="text/css" href="demo.css">
-  <script src="demo-data.js"></script>
-  <script src="demo.js"></script>
-</head>
-<body unresolved>
+        <code>
+          &lt;button onclick=&quot;window.columnView1.back()&quot;&gt;back&lt;/button&gt;&#10;<br>
+          &lt;br /&gt;<br>
+          &lt;column-view data=&apos;{&quot;1&quot;:{&quot;2&quot;:&quot;2...&quot;,&quot;3&quot;: {&quot;3+++&quot;}}&apos; id=&quot;columnView1&quot;&gt;&lt;/column-view&gt;
+          <br><br>
+          &lt;script&gt;&#10;<br>
+            &nbsp;&nbsp;window.columnView1.addEventListener(&quot;change&quot;, function(e) {&#10;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;columnView1 changed:&quot;, e.detail.id);&#10;<br>
+            &nbsp;&nbsp;})&#10;<br>
+            &lt;/script&gt;
+        </code>
+        <br><br>
+      </div>
 
+      <br>
+      <button onclick="window.columnView1.back()">back</button>
+      <br />
+      <column-view id="columnView1" data='{"1":{"2":"2...","3": "3+++"}}'></column-view>
 
+      <script>
+        window.columnView1.addEventListener("change", function(e) {
+          console.log("columnView1 changed:", e.detail.id);
+        })
+      </script>
 
-  <p>An example of using <code>&lt;column-view></code>:</p>
-
-
-  <button is="column-view-back" for="column-view">back</button>
-
-  <column-view id="column-view" path="7022" ondata="source"></column-view>
-
-
-</body>
+      <hr />
+      <h3>Real world demo:</h3>
+      <button is="column-view-back" for="columnView2">back</button>
+      <br />
+      <column-view id="columnView2" path="7022" ondata="ondata"></column-view>
+      <a href="demo.js" target="_blank">javascript source</a>
+    </div>
+  </body>
 </html>

@@ -1,6 +1,6 @@
 {
   "name": "column-view",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "authors": [
     "Carsten Griesheimer hallo@carstengriesheimer.de"
   ],
@@ -11,21 +11,21 @@
     "web-components",
     "miller-columns"
   ],
-  "main": "src/column-view.html",
+  "main": "column-view.html",
   "license": "MIT",
   "homepage": "https://github.com/Jupiterrr/column-view-component",
   "ignore": [
     "**/.*",
     "bower_components",
     "tests",
-    "test",
-    "demo"
+    "test"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.3.1"
+    "polymer": "Polymer/polymer#^1.2.0",
+    "column-view-lib": "https://github.com/Jupiterrr/column-view.git#de43c49"
   },
   "devDependencies": {
-    "chai": "~1.9.1",
-    "mocha": "~1.19.0"
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
   }
 }

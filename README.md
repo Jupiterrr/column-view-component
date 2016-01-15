@@ -1,26 +1,18 @@
 # &lt;column-view&gt;
 
-Polymer Web Component for a Miller columns (a.k.a. OS X Column View) element
+A Polymer Web Component for Miller columns (aka. Column View) with keyboard navigation.
 
+<a href="http://jupiterrr.github.io/column-view-component/components/column-view/demo/demo.html" target="_blank"><img src="https://f.cloud.github.com/assets/681942/2457975/993771cc-af43-11e3-9585-0dadd54e6c4c.png" alt="screenshot" width="450" /></a>
 
-<img src="https://f.cloud.github.com/assets/681942/2457975/993771cc-af43-11e3-9585-0dadd54e6c4c.png" alt="screenshot" width="450" />
-
-What does it do?
-
-* It does fast
-* It does Preview cloumns
-* It does keyboard navigation
-
-### [Demos with Code](http://raw.githack.com/Jupiterrr/column-view-component/master/demo/index.html)
-
-
+### [Docs & Demo](http://jupiterrr.github.io/column-view-component/components/column-view/)
+[demo page only](http://jupiterrr.github.io/column-view-component/components/column-view/demo/demo.html)
 
 ## Install
 
 Install the component using [Bower](http://bower.io/):
 
 ```sh
-$ bower install column-view --save
+bower install column-view --save
 ```
 
 <!--Or [download as ZIP](https://github.com/zenorocha/voice-elements/archive/gh-pages.zip).-->
@@ -87,7 +79,8 @@ $ bower install column-view --save
 
 Attribute | Options | Default | Description
 --- | --- | --- | ---
-`ondata` | *Function(String value, Function callback)* | None. | **Required**<br> A function to be called for each selected item. This function can either pass child items or an HTML element to the callback function.<br><br>Callback:<br>`callback({dom: <HTMLElement>})` <br> `callback({items: [{name: <String>, value: <String, Number>}, ...]})`
+`ondata` | *Function(String value, Function callback)* | None. | A function to be called for each selected item. This function can either pass child items or an HTML element to the callback function.<br><br>Callback:<br>`callback({dom: <HTMLElement>})` <br> `callback({items: [{name: <String>, value: <String, Number>}, ...]})`
+`data` | *JSON* | None. | \*work in progress\* <br>`{"fruits": {"apple": "<b>Apple</b>", "grape": "<b>Grape</b>"}}`
 `path` | *String* | `""` | Defines the path of items the column-view is initialized with. When the element is ready the `ondata` method is called with each item ID. Each call results in a new column. <br><br>IDs are speareated by `/`.<br><br>Example: `path="1/2/3"`
 
 ### Methods
@@ -160,6 +153,12 @@ In order to run it locally you'll need to fetch some dependencies and a basic se
     $ grunt deploy
     ```
 -->
+
+## Setup (run it locally)
+
+1. Install dependencies: `bower install`
+* Start development server: `polyserve` <br>(`npm install polyserve -g`)
+* open [http://localhost:8080/components/column-view/demo/demo.html](http://localhost:8080/components/column-view/demo/demo.html)
 
 ## Contributing
 

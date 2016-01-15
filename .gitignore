@@ -1,4 +1,4 @@
 .bowerrc
 *.sublime-workspace
-dist
-bower_components
+/bower_components
+/components

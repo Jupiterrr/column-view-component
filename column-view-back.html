@@ -1,8 +1,14 @@
-<polymer-element name="column-view-back" extends="button" on-click="{{onClick}}" attributes="for">
+<dom-module id="column-view-back" extends="button" on-click="{{onClick}}">
   <!-- <template>polymer-cooler is {{praise}}</template> -->
   <script>
 
-    Polymer('column-view-back', {
+    Polymer({
+
+      is: 'column-view-back',
+
+      properties: {
+          for: String
+      },
 
       onClick: function() {
         if (this.columnView) this.columnView.back();
@@ -28,4 +34,4 @@
 
     });
   </script>
-</polymer-element>
+</dom-module>

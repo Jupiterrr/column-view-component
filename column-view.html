@@ -1,0 +1,158 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="column-view-back.html">
+
+<!--
+  Polymer Web Component for a Miller columns (a.k.a. OS X Column View) element
+
+Supports:
+- keyboard navigation
+
+@element column-view
+@demo demo/demo.html
+-->
+
+<dom-module id="column-view">
+  <script type="text/javascript" src="../column-view-lib/dist/all.js"></script>
+
+  <template>
+
+    <link rel="stylesheet" type="text/css" href="../column-view-lib/dist/column-view.css">
+    <style type="text/css">
+      :host {
+        display: inline-block;
+        width: 800px;
+        height: 480px;
+      }
+
+      .column-view {
+        height: 100%;
+        box-sizing: border-box;
+      }
+    </style>
+
+    <div class="column-view">
+      <div id="carriage" class="carriage"></div>
+    </div>
+
+  </template>
+
+  <script>
+
+    function transform(json) {
+      var obj = JSON.parse(json);
+      var nodes = {};
+      var id = 0;
+
+      var parse = function(node) {
+        var _ids = [];
+        for (var i in node) {
+          var _id = id++;
+          _ids.push(_id);
+
+          if (typeof node[i] == "string") {
+            var newNode = {name: i, childIDs: [], data: node[i]};
+          } else {
+            var newNode = {name: i, childIDs: parse(node[i])};
+          }
+          nodes[_id] = newNode;
+        }
+        return _ids;
+      }
+      var rootId = id++;
+      nodes[rootId] = {name: "root", childIDs: parse(obj)};
+      return nodes;
+    }
+
+    Polymer({
+
+      is: 'column-view',
+
+      properties: {
+        path: {
+          type: String,
+          value: ""
+        },
+        /* Name of global function */
+        ondata: String,
+
+        // TODO: change to column count
+        layout: {
+          type: String,
+          // mobile
+        },
+        data: JSON
+      },
+
+      ready: function() {
+        var that = this;
+
+        // Polymer removes any style-tag in the template, so add one dynamically
+        this.appendChild(document.createElement("style"));
+
+        if (this.data) {
+          var data = transform(this.data);
+        }
+
+        function getChildren(selectedItem) {
+          var children = selectedItem.childIDs.map(function(id) {
+            var item = data[id];
+            return {name: item.name, value: id};
+          });
+          return children;
+        }
+
+        var dataSourceFn = function(ID, cb) {
+          if (!ID) ID = 0;
+          var selectedItem = data[ID];
+
+          if (selectedItem.childIDs.length) {
+            cb({items: getChildren(selectedItem)});
+          } else {
+            cb({dom: document.createTextNode(selectedItem.data)})
+          }
+        }
+
+        this.cv = new ColumnView(
+          that,
+          {
+            source: data ? dataSourceFn : window[this.ondata],
+            path: that.path.split("/"),
+            onChange: function(id) {
+              that.fire("change", {id: id});
+            },
+            layout: that.layout,
+            scroll: false // ????
+          }
+        );
+      },
+
+      /**
+       * The `change` event is fired whenever `back` is called or the user
+       * navigates.
+       *
+       * @event change
+       * @detail {Number}
+       */
+
+      /**
+       * Removes last column
+       */
+      back: function() {
+        this.cv.back();
+      },
+
+      /**
+       * Sometimes it's just nice to say hi.
+       *
+       * @param {string} greeting A positive greeting.
+       * @return {string} The full greeting.
+       */
+      get canMoveBack() {
+        return this.cv.canMoveBack();
+      }
+
+    });
+
+  </script>
+
+</dom-module>

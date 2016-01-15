@@ -1,0 +1,7 @@
+{
+  "preset": "airbnb",
+  "disallowMultipleVarDecl": false,
+  "requireShorthandArrowFunctions": true,
+  "validateQuoteMarks": false,
+  "requireTemplateStrings": false
+}
