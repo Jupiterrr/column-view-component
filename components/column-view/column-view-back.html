@@ -1,26 +1,21 @@
-<dom-module id="column-view-back">
+<dom-module id="column-view-back" extends="button" on-click="{{onClick}}">
+  <!-- <template>polymer-cooler is {{praise}}</template> -->
   <script>
 
     Polymer({
 
-      extends: 'button',
-
       is: 'column-view-back',
 
       properties: {
-        for: String
+          for: String
       },
 
-      listeners: {
-        'tap': 'onTap',
-      },
-
-      onTap: function() {
+      onClick: function() {
         if (this.columnView) this.columnView.back();
       },
 
       ready: function() {
-        var _this = this;
+        var that = this;
         var columnView = document.getElementById(this.for);
         if (!this._isColumnView(columnView)) return;
 
@@ -28,7 +23,7 @@
         this.disabled = !this.canMoveBack;
 
         columnView.addEventListener("change", function() {
-          _this.disabled = !columnView.canMoveBack;
+          that.disabled = !columnView.canMoveBack;
         });
 
       },
