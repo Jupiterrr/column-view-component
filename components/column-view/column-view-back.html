@@ -27,7 +27,7 @@
           if (!_this._isColumnView(columnView)) return;
 
           _this.columnView = columnView;
-          _this.disabled = !_this.canMoveBack;
+          _this.disabled = !_this.columnView.canMoveBack;
 
           columnView.addEventListener("change", function() {
             _this.disabled = !columnView.canMoveBack;

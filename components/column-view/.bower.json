@@ -27,12 +27,12 @@
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "web-component-tester": "*"
   },
-  "_release": "abced04",
+  "_release": "f039c53",
   "_resolution": {
     "type": "commit",
-    "commit": "abced04"
+    "commit": "f039c53"
   },
   "_source": "git://github.com/Jupiterrr/column-view-component.git",
-  "_target": "abced04",
+  "_target": "f039c53",
   "_originalSource": "Jupiterrr/column-view-component"
 }
