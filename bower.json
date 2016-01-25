@@ -2,12 +2,9 @@
   "name": "column-view#gh-pages",
   "private": true,
   "dependencies": {
-    "column-view": "Jupiterrr/column-view-component#4d2f2fd"
+    "column-view": "Jupiterrr/column-view-component#abced04"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0"
-  },
-  "resolutions": {
-    "column-view": "~0.1.1"
   }
 }
