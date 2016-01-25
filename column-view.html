@@ -84,7 +84,7 @@ Supports:
       },
 
       ready: function() {
-        var that = this;
+        var _this = this;
 
         // Polymer removes any style-tag in the template, so add one dynamically
         this.appendChild(document.createElement("style"));
@@ -112,18 +112,26 @@ Supports:
           }
         }
 
-        this.cv = new ColumnView(
-          that,
-          {
-            source: data ? dataSourceFn : window[this.ondata],
-            path: that.path.split("/"),
-            onChange: function(id) {
-              that.fire("change", {id: id});
-            },
-            layout: that.layout,
-            scroll: false // ????
-          }
-        );
+        function init() {
+          _this.cv = new ColumnView(
+            _this,
+            {
+              source: data ? dataSourceFn : window[_this.ondata],
+              path: _this.path.split("/"),
+              onChange: function(id) {
+                _this.fire("change", {id: id});
+              },
+              layout: _this.layout,
+              scroll: false // ????
+            }
+          );
+        }
+
+        if (data || window[_this.ondata]) {
+          init();
+        } else {
+          document.addEventListener('DOMContentLoaded', init, false);
+        }
       },
 
       /**
