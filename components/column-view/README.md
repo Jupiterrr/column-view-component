@@ -1,19 +1,11 @@
 # &lt;column-view&gt;
 
-Polymer Web Component for a Miller columns (a.k.a. OS X Column View) element
+A Polymer Web Component for Miller columns (aka. Column View) with keyboard navigation.
 
+<a href="http://jupiterrr.github.io/column-view-component/components/column-view/demo/demo.html" target="_blank"><img src="https://f.cloud.github.com/assets/681942/2457975/993771cc-af43-11e3-9585-0dadd54e6c4c.png" alt="screenshot" width="450" /></a>
 
-<img src="https://f.cloud.github.com/assets/681942/2457975/993771cc-af43-11e3-9585-0dadd54e6c4c.png" alt="screenshot" width="450" />
-
-What does it do?
-
-* It does fast
-* It does Preview cloumns
-* It does keyboard navigation
-
-### [Demos with Code](http://raw.githack.com/Jupiterrr/column-view-component/master/demo/index.html)
-
-
+### [Docs & Demo](http://jupiterrr.github.io/column-view-component/components/column-view/)
+[demo page only](http://jupiterrr.github.io/column-view-component/components/column-view/demo/demo.html)
 
 ## Install
 
