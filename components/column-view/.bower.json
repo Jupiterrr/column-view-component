@@ -1,6 +1,5 @@
 {
   "name": "column-view",
-  "version": "0.1.1",
   "authors": [
     "Carsten Griesheimer hallo@carstengriesheimer.de"
   ],
@@ -28,13 +27,12 @@
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "web-component-tester": "*"
   },
-  "_release": "0.1.1",
+  "_release": "4d2f2fd",
   "_resolution": {
-    "type": "version",
-    "tag": "v0.1.1",
-    "commit": "de90e9b458cc9b1adb2df3fc86bdabe0bc18f60c"
+    "type": "commit",
+    "commit": "4d2f2fd"
   },
   "_source": "git://github.com/Jupiterrr/column-view-component.git",
-  "_target": "*",
+  "_target": "4d2f2fd",
   "_originalSource": "Jupiterrr/column-view-component"
 }

@@ -2,7 +2,7 @@
   "name": "column-view#gh-pages",
   "private": true,
   "dependencies": {
-    "column-view": "Jupiterrr/column-view-component"
+    "column-view": "Jupiterrr/column-view-component#4d2f2fd"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0"
